@@ -7,6 +7,8 @@ var canConstruct = function(s, k) {
     
     if(s.length < k)
         return false;
+    if (s.length === k) 
+        return true;
     
     let map1 = new Map();
 
