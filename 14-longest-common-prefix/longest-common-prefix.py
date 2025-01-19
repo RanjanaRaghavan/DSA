@@ -24,7 +24,8 @@ class Solution:
             pref_len = len(prefix)
             for i in range(pref_len):
                 if word[i] != prefix[i]:
-                    prefix = prefix[:i]
+                    pref_len = i
                     break
-        
+
+            prefix = prefix[:pref_len]
         return prefix
