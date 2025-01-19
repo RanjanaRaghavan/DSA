@@ -21,7 +21,8 @@ class Solution:
             if len(word) < len(prefix):
                 prefix = prefix[:len(word)]
 
-            for i in range(len(word)):
+            pref_len = len(prefix)
+            for i in range(pref_len):
                 if i >= len(prefix) or word[i] != prefix[i]:
                     prefix = prefix[:i]
                     break
