@@ -23,7 +23,7 @@ class Solution:
 
             pref_len = len(prefix)
             for i in range(pref_len):
-                if i >= len(prefix) or word[i] != prefix[i]:
+                if word[i] != prefix[i]:
                     prefix = prefix[:i]
                     break
         
