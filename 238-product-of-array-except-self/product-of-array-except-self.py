@@ -18,13 +18,15 @@ class Solution:
             left_arr[i] = left_arr[i-1] * nums[i-1]
 
         # for loop to iterate from right to left also left * right
-        for i in range(len(nums)-2 ,-1,-1):
-            #right will have everything i+1
-            right_arr[i] = right_arr[i+1] * nums[i+1]
+        for i in range(len(nums)-1 ,-1,-1):
+            if i == len(nums)-1:
+                ans[i] = left_arr[i]
+            else:
+                #right will have everything i+1
+                right_arr[i] = right_arr[i+1] * nums[i+1]
 
-        #return 
-        for i in range(len(nums)):
-            ans[i] = right_arr[i] * left_arr[i]
+                ans[i] = right_arr[i+1] * nums[i+1] * left_arr[i]
+
             
         return ans
         
