@@ -21,11 +21,12 @@ class Solution:
         for i in range(len(nums)-1 ,-1,-1):
             if i == len(nums)-1:
                 ans[i] = left_arr[i]
-            else:
-                #right will have everything i+1
-                right_arr[i] = right_arr[i+1] * nums[i+1]
+                continue
+            
+            #right will have everything i+1
+            right_arr[i] = right_arr[i+1] * nums[i+1]
 
-                ans[i] = right_arr[i+1] * nums[i+1] * left_arr[i]
+            ans[i] = right_arr[i+1] * nums[i+1] * left_arr[i]
 
             
         return ans
