@@ -25,11 +25,11 @@ class Solution:
         
         #Two Sets
         winner_set = set(match[0] for match in matches)
+        loser_set = set(match[1] for match in matches)
         
-
         #1 dict for freq
         loser_dict =  collections.Counter(match[1] for match in matches)
-        loser_set = set(loser_dict.keys())
+        
 
         
         
