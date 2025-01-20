@@ -13,8 +13,6 @@ class Solution:
             3. return path
         '''
 
-        path = []
-
         '''
         1. dq = collections.deque([root])
         2. while dq exists
@@ -26,6 +24,7 @@ class Solution:
         if root is None:
             return []
         
+        path = []
         dq = collections.deque([root])
 
         while(len(dq) > 0):
