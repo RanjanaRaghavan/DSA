@@ -33,13 +33,13 @@ class Solution:
         if root is None:
             return None
         
+        path.append(root.val)
+
         #leaf Node check
         if root.left is None and root.right is None:
-            path.append(root.val)
             return
 
         #not a leaf node check
-        path.append(root.val)
         
         if root.left:
             self.dfs(root.left,path)
