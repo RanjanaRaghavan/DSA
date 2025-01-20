@@ -7,9 +7,6 @@ class Solution:
         3. If 9 -> make 0 and carry 1 to previous digit
         '''
 
-        #Array for ans
-        ans = []
-
         for i in range(len(digits)-1,-1,-1):
 
             print(i)
