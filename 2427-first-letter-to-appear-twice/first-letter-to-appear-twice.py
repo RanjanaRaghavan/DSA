@@ -2,13 +2,14 @@ class Solution:
     def repeatedCharacter(self, s: str) -> str:
 
         #Set to store unique chars
-        unique_set = set()
+        unique_list = [0] * 26
 
         for char in s:
-            if char in unique_set:
+            index = ord(char) - ord('a')
+            if unique_list[index] > 0:
                 return char
-            
-            unique_set.add(char)
+
+            unique_list[index] = 1
         
         return -1
         
