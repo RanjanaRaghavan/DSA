@@ -24,18 +24,18 @@ class Solution:
         winner_dict = collections.Counter(match[0] for match in matches)
         loser_dict =  collections.Counter(match[1] for match in matches)
 
-        loser_copy = loser_dict.copy()
+        loser_set = set(loser_dict.keys())
         
-        for key,value in loser_copy.items():
+        for key,value in loser_dict.items():
 
             if key in winner_dict:
                 winner_dict.pop(key)
             
             if value != 1:
-                loser_dict.pop(key)
+                loser_set.remove(key)
         
 
-        return [sorted(list(winner_dict.keys())),sorted(list(loser_dict.keys()))]
+        return [sorted(list(winner_dict.keys())),sorted(list(loser_set))]
 
     
 
