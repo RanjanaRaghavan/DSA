@@ -6,37 +6,36 @@
 #         self.right = right
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-
         '''
-            1. list path
-            2. BFS
-            3. return path
-        '''
-
-        '''
-        1. dq = collections.deque([root])
-        2. while dq exists
-            get current node dq.popleft()
-            add its left and right in -> dq.append()
+            BFS
+            1. Have a path output list
+            2. Have a DQ to get the items in current level
+            3.While DQ exists
+            4. Have a currlevel check and level list to keep track
+            5. Update path after every level
+            6. Return path 
         '''
 
-        #none check
+        #Base Case
         if root is None:
             return []
-        
+
         path = []
         dq = collections.deque([root])
 
         while(len(dq) > 0):
-
+            
+            #to keep track of level
             cur_level = len(dq)
             level = []
+            
+            while(cur_level > 0 ):
 
-            while cur_level >0:
-
+                #Append node to level
                 cur_node = dq.popleft()
                 level.append(cur_node.val)
 
+                #Add children node back in DQ
                 if cur_node.left:
                     dq.append(cur_node.left)
                 
@@ -44,9 +43,10 @@ class Solution:
                     dq.append(cur_node.right)
 
                 cur_level -=1
-            
+        
             path.append(level)
 
-
         return path
+
+
         
