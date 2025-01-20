@@ -9,7 +9,6 @@ class Solution:
 
         for i in range(len(digits)-1,-1,-1):
 
-            print(i)
             if digits[i] != 9:
                 digits[i] += 1
                 return digits
