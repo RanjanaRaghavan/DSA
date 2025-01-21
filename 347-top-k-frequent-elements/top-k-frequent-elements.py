@@ -7,14 +7,7 @@ class Solution:
         if(k == len(nums)):
             return nums
         
-        for num,freq in ctr.items():
-
-            heapq.heappush(min_heap,[freq,num])
-
-            if len(min_heap) > k:
-                heapq.heappop(min_heap)
-
-        return [num for freq,num in min_heap]
+        return heapq.nlargest(k, ctr.keys(), key=ctr.get)
 
 
         
