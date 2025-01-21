@@ -13,7 +13,6 @@ class Solution:
             if len(min_heap) > k:
                 heapq.heappop(min_heap)
 
-        print(min_heap)
         result =  [-num for val,num in min_heap ]
         result.sort()
         return result
