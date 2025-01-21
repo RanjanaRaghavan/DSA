@@ -8,13 +8,15 @@ class Solution:
             val = abs(num - x)
 
             #check if val exists in heapq
-            # if -val in min_heap:
             heapq.heappush(min_heap,[-val,-num])
 
             if len(min_heap) > k:
                 heapq.heappop(min_heap)
-        
-        return sorted([-num for val,num in min_heap ])
+
+        print(min_heap)
+        result =  [-num for val,num in min_heap ]
+        result.sort()
+        return result
 
             
         
