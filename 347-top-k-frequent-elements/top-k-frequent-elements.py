@@ -3,6 +3,9 @@ class Solution:
 
         ctr = Counter(nums)
         min_heap = []
+
+        if(k == len(nums)):
+            return nums
         
         for num,freq in ctr.items():
 
