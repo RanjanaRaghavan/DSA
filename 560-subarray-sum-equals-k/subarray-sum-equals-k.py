@@ -17,8 +17,8 @@ class Solution:
         if len(nums) == 0:
             return 0
         
-        if len(nums) ==1 and nums[0] == k:
-            return 1
+        # if len(nums) ==1 and nums[0] == k:
+        #     return 1
         
 
         pref_dict = collections.defaultdict(int)
