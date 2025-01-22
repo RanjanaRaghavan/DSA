@@ -2,10 +2,10 @@ class Solution:
     def maximumProduct(self, nums: List[int]) -> int:
 
         '''
-
-        sort the array in desc order
-        get the product of first 3 elements
-
+        sort the array 
+        get the product of first 3 elements or first two small and last element
+        if sorted array is [a,b,c,...x,y,z]
+        basically max(abz,xyz)
         '''
 
         #Base Cases
@@ -24,5 +24,5 @@ class Solution:
             product_pos *= big_nums[i]
             product_neg *= small_nums[i]
         
-        return product_pos if product_pos > product_neg else product_neg
+        return max(product_pos,product_neg)
         
