@@ -4,18 +4,8 @@ class Solution:
         #Base Case - U need atleast 5 moves for a win 
         if len(moves) < 5:
             return "Pending"
-            
-        board = {
-            1 : ' ',
-            2 : ' ',
-            3 : ' ',
-            4 : ' ',
-            5 : ' ',
-            6 : ' ',
-            7 : ' ',
-            8 : ' ',
-            9 : ' '
-        }
+
+        board = [' '] * 10
 
         #Add the moves in board
         player_is_x = True
