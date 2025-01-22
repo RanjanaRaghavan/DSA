@@ -1,63 +1,27 @@
-class ListNode:
-    def __init__(self,key,val):
-        self.key = key
-        self.val = val
-        self.next = None
-        self.prev = None
-
 class LRUCache:
 
     def __init__(self, capacity: int):
-        #Define size
         self.capacity = capacity
-        #Define a Dict
-        self.dic = {}
-        
-        self.head = ListNode(-1,-1)
-        self.tail = ListNode(-1,-1)
-        self.head.next = self.tail
-        self.tail.prev = self.head
-
+        self.orderd_dic = collections.OrderedDict()
         
 
     def get(self, key: int) -> int:
-        if key not in self.dic:
+        if key not in self.orderd_dic:
             return -1
         
-        node = self.dic[key]
-        self.remove(node)
-        self.add(node)
-        return node.val
-            
+        self.orderd_dic.move_to_end(key)
+        return self.orderd_dic[key]
+        
 
     def put(self, key: int, value: int) -> None:
-        if key in self.dic:
-            old_node = self.dic[key]
-            self.remove(old_node)
+        if key in self.orderd_dic:
+            self.orderd_dic.move_to_end(key)
         
-        node = ListNode(key,value)
-        self.dic[key] = node
-        self.add(node)
+        self.orderd_dic[key] = value
 
         #Logic to evict
-        if len(self.dic) > self.capacity:
-            node_to_del = self.head.next
-            self.remove(node_to_del)
-            del self.dic[node_to_del.key]
-    
-
-    def add(self,node):
-        prev_end = self.tail.prev
-
-        prev_end.next = node
-        node.prev = prev_end
-
-        node.next = self.tail
-        self.tail.prev = node
-
-    def remove(self,node):
-        node.prev.next = node.next
-        node.next.prev = node.prev
+        if len(self.orderd_dic) > self.capacity:
+            self.orderd_dic.popitem(False)
         
 
 
