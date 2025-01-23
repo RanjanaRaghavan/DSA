@@ -21,8 +21,6 @@ class FrequencyTracker:
         
 
     def hasFrequency(self, frequency: int) -> bool:
-        print(self.freq_array[0:5])
-        print(self.num_array[0:5])
         return self.freq_array[frequency] > 0
         
 
