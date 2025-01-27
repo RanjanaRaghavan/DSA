@@ -13,7 +13,6 @@ class Solution:
         for i in range(len(nums)-2,-1,-1):
             suffix_arr[i] = suffix_arr[i+1] * nums[i+1]
         
-        print(prefix_arr,suffix_arr)
         for i in range(len(nums)):
             ans[i] = prefix_arr[i] * suffix_arr[i]
         
