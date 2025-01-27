@@ -1,20 +1,19 @@
 class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:
 
-        first_num = max(nums)
-        second_num = max(nums)
+        first_num = float('inf')
+        second_num = float('inf')
 
-        for i in range(0,len(nums)):
+        for num in nums:
 
-            if nums[i] > second_num:
+            if num <= first_num:
+                first_num = num
+            elif num <= second_num:
+                second_num = num
+            else:
                 return True
-            
-            elif nums[i] > first_num:
-                second_num = nums[i]
-                
-            elif nums[i] < first_num:
-                first_num = nums[i]
-        
+
         return False
+        
 
         
