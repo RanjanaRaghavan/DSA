@@ -4,13 +4,7 @@ class Solution:
         #Base case
         if str1+str2 != str2+str1:
             return ''
-        
-        a = len(str1)
-        b = len(str2)
-
-        if a >b:
-            gcf = gcd(a,b)
-        else:
-            gcf = gcd(b,a)
+            
+        gcf = gcd(len(str1),len(str2))
         return str1[0:gcf]
         
