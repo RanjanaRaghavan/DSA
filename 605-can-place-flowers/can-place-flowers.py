@@ -17,29 +17,12 @@ class Solution:
 
         if len(flowerbed) < n:
             return False
-
-        if len(flowerbed) == 1:
-            if flowerbed[0] == 0 and n==1:
-                return True
-            elif flowerbed[0] == 1 and n ==0:
-                return True
-            else:
-                return False
             
         for i in range(0,len(flowerbed)):
 
-            #edge cases
-            if i == 0:
-                prevbed = 0
-                nextbed = flowerbed[i+1]
-            elif i == len(flowerbed) -1 :
-                nextbed = 0
-                prevbed = flowerbed[i-1]
-            else:
-                nextbed = flowerbed[i+1]
-                prevbed = flowerbed[i-1]
-
-            if flowerbed[i] == 0 and (flowerbed[i] == nextbed == prevbed):
+            if flowerbed[i] == 0 and \
+            (i==0 or flowerbed[i-1]==0) and \
+            (i==len(flowerbed)-1 or flowerbed[i+1] == 0):
                 flowerbed[i] = 1
                 n -=1
             
