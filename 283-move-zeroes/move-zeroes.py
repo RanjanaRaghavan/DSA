@@ -6,7 +6,7 @@ class Solution:
 
         left =0
 
-        for right in range(0,len(nums)):
+        for right in range(len(nums)):
 
             if nums[right] !=0:
                 nums[left],nums[right] = nums[right],nums[left]
