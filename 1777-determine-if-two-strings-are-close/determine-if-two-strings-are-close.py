@@ -14,19 +14,7 @@ class Solution:
         ctr2 = Counter(word2)
 
 
-        #check for key
-        for key in ctr1:
-            if key not in ctr2:
-                return False
-
-        #check for val
-        val1 = sorted(list(ctr1.values()))
-        val2 = sorted(list(ctr2.values()))
-        
-        if val1 != val2:
-            return False
-
-        return True
+        return set(ctr1.keys()) == set(ctr2.keys()) and sorted(ctr1.values()) == sorted(ctr2.values())
     
 
 
