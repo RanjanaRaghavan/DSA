@@ -4,16 +4,5 @@ class Solution:
         set1 = set(nums1)
         set2 = set(nums2)
 
-        ans1 = set()
-        ans2 = set()
-
-        for n in nums1:
-            if n not in set2: 
-                ans1.add(n)
-        
-        for n in nums2:
-            if n not in set1:
-                ans2.add(n)
-
-        return [list(ans1) , list(ans2)]
+        return [list(set1 - set2) , list(set2 - set1)]
         
