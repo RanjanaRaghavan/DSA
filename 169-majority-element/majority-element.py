@@ -1,17 +1,6 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
 
-        ctr = Counter(nums)
+        nums.sort()
 
-        maxval = -1
-        ans = 0
-        
-        for k,v in ctr.items():
-            if v > maxval:
-                maxval = v
-                ans = k
-        
-        return ans
-            
-
-        
+        return nums[len(nums)//2]
