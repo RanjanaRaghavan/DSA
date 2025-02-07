@@ -19,9 +19,10 @@ class Solution:
         
         elif right is None:
             return left
-
+        
         else:
             return root
 
-        
+
+
         
