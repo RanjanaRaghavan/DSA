@@ -1,22 +1,17 @@
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
 
-        '''
-        A maxHeap to store kth closest points to origin
-        key -> distance
-        value -> point
-        '''
+        res = []
+        for p in points:
 
-        max_heap = []
-
-        for point in points:
-
-            dist = math.sqrt( (point[0] * point[0]) +  (point[1] * point[1])) 
+            dist = math.sqrt(p[0] ** 2 + p[1] **2)
             
-            heapq.heappush(max_heap,[-dist,point])
+            heapq.heappush(res,[-dist,p])
 
-            if len(max_heap) > k:
-                heapq.heappop(max_heap)
+            if len(res) > k:
+                heapq.heappop(res)
         
-        return [point for dist,point in max_heap]
+        return [point for dist,point in res]
+
+
         
