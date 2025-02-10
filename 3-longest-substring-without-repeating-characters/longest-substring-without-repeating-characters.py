@@ -8,17 +8,17 @@ class Solution:
             4. return max length
         '''
 
-        set1 = set()
+        map1 = {}
         max_count = 0
         left = 0
 
         for right in range(len(s)):
 
-            while s[right] in set1:
-                set1.remove(s[left])
-                left+=1
+            if s[right] in map1 and map1[s[right]] >= left:
+                left = map1[s[right]] +1
+            
                 
-            set1.add(s[right])
+            map1[s[right]] = right
             max_count = max(max_count, right - left +1)
         
         return max_count
