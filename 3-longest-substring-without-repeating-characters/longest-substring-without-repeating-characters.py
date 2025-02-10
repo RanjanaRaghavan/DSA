@@ -2,9 +2,10 @@ class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
 
         '''
-            1. Have a set to store chars (we dont want repeating chars)
+            1. Have a map to store chars (we dont want repeating chars)
             2. two vars left and right to caluclate length
-            3. while u see a repeated char move left pointer
+            3. while u see a repeated char and the value of its last index is greater 
+            than left move left pointer to that place + 1 cuz we know thats wer our streak breaks
             4. return max length
         '''
 
