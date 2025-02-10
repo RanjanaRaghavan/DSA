@@ -6,8 +6,6 @@ class Solution:
         max_c = 0
         for right in range(len(nums)):
 
-            print(right, count, max_c)
-
             if nums[right] == 0:
                 count +=1
             
