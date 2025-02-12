@@ -7,6 +7,6 @@ class Solution:
 
             while not s.startswith(prefix):
                 prefix = prefix[:-1]
-            
+        
         return prefix
         
