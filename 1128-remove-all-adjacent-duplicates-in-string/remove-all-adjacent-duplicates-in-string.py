@@ -4,7 +4,6 @@ class Solution:
         stack1 = []
 
         for c in s:
-
             if stack1 and stack1[-1] == c:
                 stack1.pop()
             else:
