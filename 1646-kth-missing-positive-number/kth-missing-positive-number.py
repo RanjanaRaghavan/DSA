@@ -8,12 +8,10 @@ class Solution:
 
             mid = left + ((right - left)//2)
 
-            #missing count before mid
-            if arr[mid] - mid -1 < k:
+            if arr[mid] - mid - 1 < k:
                 left = mid +1
             else:
                 right = mid -1
         
-        return k + left
-                
+        return left +k 
         
