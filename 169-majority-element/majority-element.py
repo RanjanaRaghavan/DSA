@@ -5,6 +5,7 @@ class Solution:
         candidate = None
 
         for n in nums:
+
             if count == 0:
                 candidate = n
             
