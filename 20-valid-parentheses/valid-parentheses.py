@@ -1,49 +1,22 @@
 class Solution:
     def isValid(self, s: str) -> bool:
 
-        #Edge Cases
-        if len(s) == 0:
-            return True
-        if len(s) %2 != 0:
-            return False
-        
-        '''
-        # Define a Dict of kV pairs of parantheses
-         Key :opening bracket
-         value :closing bracket
-        '''
-        paran_dict = {
-            '(' : ')',
-            '{' : '}',
+        map1 = {
+            '(' :')',
+            '{' :'}',
             '[' : ']'
-            }
+        }
+        stack1 = []
 
-        #Define a stack
-        paran_stack = []
-
-        #Loop through s
-        for i in range(len(s)):
-
-            # if opening bracket of any kind i will add to stack
-            if s[i] == '(' or s[i] == '{' or s[i] == '[':
-                paran_stack.append(s[i])
-
-            #else then check if top Element in stack is value of the key 
-            #if its is true pop the stack
-            #else return false
+        for c in s:
+            if c in map1:
+                stack1.append(c)
             else:
-                if len(paran_stack) > 0 and s[i] == paran_dict[paran_stack[-1]]:
-                    paran_stack.pop()
+                if stack1 and map1[stack1[-1]] == c:
+                    stack1.pop()
                 else:
                     return False
-
-    #check if len(stack) is 0
-    #if 0 return true
-    #else Fasle
-
         
-        return len(paran_stack) == 0
-    
+        return len(stack1) == 0
 
 
-        
