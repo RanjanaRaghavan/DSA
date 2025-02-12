@@ -1,6 +1,13 @@
 class Solution:
     def isValid(self, s: str) -> bool:
 
+        #Edge Case
+        if len(s) == 0:
+            return False
+
+        if len(s) %2 == 1:
+            return False
+
         map1 = {
             '(' :')',
             '{' :'}',
