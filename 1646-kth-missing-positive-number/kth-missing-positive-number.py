@@ -1,19 +1,19 @@
 class Solution:
     def findKthPositive(self, arr: List[int], k: int) -> int:
 
-        count = 0
-        for i in range(1,max(arr)+1):
-            #print(i,count)
-            if i not in arr:
-                count +=1
-            
-            if count == k:
-                return i
+        left = 0
+        right = len(arr) -1
+
+        while left <= right:
+
+            mid = left + ((right - left)//2)
+
+            #missing count before mid
+            if arr[mid] - mid -1 < k:
+                left = mid +1
+            else:
+                right = mid -1
         
-        #find missing nums after the loop
-        return arr[-1] + (k - count)
-
-        
-
-
+        return k + left
+                
         
