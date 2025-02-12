@@ -4,11 +4,12 @@ class Solution:
         map1 = collections.defaultdict(int)
 
         for i,n in enumerate(nums):
+
             comp = target - n
-            
+
             if comp in map1:
-                return [i,map1[comp]]
+                return [i, map1[comp]]
             
             map1[n] = i
-    
+
         
