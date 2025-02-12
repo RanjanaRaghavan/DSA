@@ -1,29 +1,19 @@
 class Solution:
     def validPalindrome(self, s: str) -> bool:
 
-        def isPalindrome(left,right):
+        i = 0
+        j = len(s) -1
 
-            while left < right:
+        while i < j:
 
-                if s[left] != s[right]:
-                    return False
-                
-                else:
-                    left +=1
-                    right -=1
-            
-            return True
-        
-        left =0
-        right = len(s)-1
-
-        while left < right:
-
-            if s[left] == s[right]:
-                left +=1
-                right -=1
-
-            else:
-                return isPalindrome(left+1,right) or isPalindrome(left,right-1)
-        
+            if s[i] != s[j]:
+                one = s[i+1 : j+1]
+                two = s[i:j] #j is not included so no need -1 
+                print(one, two)
+                return one == one[::-1] or two == two[::-1]
+               
+            i +=1
+            j -=1
         return True
+
+        
