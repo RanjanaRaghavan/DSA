@@ -4,8 +4,8 @@ class Solution:
         ispal = ''
 
         for c in s:
-
             if c.isalnum():
                 ispal += c.lower()
-
-        return ispal == ispal[::-1]        
+        
+        return ispal == ispal[::-1]
+        
