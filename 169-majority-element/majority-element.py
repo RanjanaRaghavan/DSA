@@ -9,7 +9,10 @@ class Solution:
             if count == 0:
                 candidate = n
             
-            count += 1 if candidate == n else -1
+            if n!= candidate:
+                count -=1
+            else:
+                count +=1
         
         return candidate
         
