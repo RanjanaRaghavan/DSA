@@ -1,27 +1,21 @@
 class Solution:
     def maxScore(self, s: str) -> int:
 
-        slist = list(map(int,s))
+        ones = 0
+        zeroes = 0
 
-        total = sum(slist)
+        score = -inf
 
-        #initial check
-        if slist[0] == 0:
-            left = 1
-            right = total
-        else:
-            left = 0
-            right = total -1
-        
-        score = left + right
-        
-        for i in range(1, len(s)-1):
-            if slist[i] == 0:
-                left +=1
+        for i in range(len(s)-1):
+            if s[i] == '0':
+                zeroes +=1
             else:
-                right -=1
+                ones +=1
             
-            score = max(score, left+right)
-            
-        return score
+            score = max(zeroes - ones,score)
+        
+        if s[-1] =='1':
+            ones +=1
+        
+        return score + ones
         
