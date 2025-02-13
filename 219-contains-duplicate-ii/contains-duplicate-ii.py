@@ -4,10 +4,9 @@ class Solution:
         map1 = collections.defaultdict(int)
 
         for i,n in enumerate(nums):
-            if n in map1 and abs(map1[n] - i) <=k:
+            if n in map1 and abs(map1[n] - i) <= k:
                 return True
-            
-            map1[n] = i
+            map1[n] =i
         
         return False
         
