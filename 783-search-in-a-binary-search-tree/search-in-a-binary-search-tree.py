@@ -9,8 +9,13 @@ class Solution:
 
         if root is None or root.val == val:
             return root
-        
-        return self.searchBST(root.left,val) or self.searchBST(root.right,val)
+        else:
+            #Go left
+            if root.val > val:
+                return self.searchBST(root.left,val) 
+                
+            else:
+                return self.searchBST(root.right,val)
 
 
         
