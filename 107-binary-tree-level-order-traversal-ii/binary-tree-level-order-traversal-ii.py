@@ -7,39 +7,28 @@
 class Solution:
     def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
 
-        #Base Case
         if root is None:
             return []
-        
-        path = []
-        dq = collections.deque([root])
 
-        while(len(dq) > 0):
+        Q = collections.deque([root])
+        arr = []
 
-            #For level tracking
-            cur_level = len(dq)
-            level = []
+        while Q:
 
-            while cur_level > 0:
-                
-                cur_node = dq.popleft()
-                
-                #First go to children
-                if cur_node.left:
-                    dq.append(cur_node.left)
-                
-                if cur_node.right:
-                    dq.append(cur_node.right)
+            cur_level = []
+            cur_size = len(Q)
 
-                #then append to level
-                level.append(cur_node.val)
-                cur_level -=1
-            
-            path.append(level)
-        
-        return path[::-1]
+            for _ in range(cur_size):
 
-        
+                node = Q.popleft()
+                cur_level.append(node.val)
 
+                if node.left:
+                    Q.append(node.left)
 
-        
+                if node.right:
+                    Q.append(node.right)
+
+            arr.append(cur_level)
+
+        return arr[::-1]        
