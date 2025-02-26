@@ -25,8 +25,8 @@ class Trie:
             pos = ord(w) - ord('a')
             if not cur_node.children[pos]:
                 return False
-            else:
-                cur_node = cur_node.children[pos]
+            
+            cur_node = cur_node.children[pos]
         
         return cur_node.isword
 
@@ -39,8 +39,8 @@ class Trie:
             pos = ord(p) - ord('a')
             if not cur_node.children[pos]:
                 return False
-            else:
-                cur_node = cur_node.children[pos]
+            
+            cur_node = cur_node.children[pos]
         
         return True
             
