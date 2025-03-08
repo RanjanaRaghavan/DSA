@@ -1,40 +1,40 @@
 class Solution {
     public String reverseVowels(String s) {
-        
-        int start = 0;
-        int end = s.length() -1;
 
         char[] str = s.toCharArray(); 
-        HashSet<Character> set = new HashSet<>();
-        set.add('a');
-        set.add('e');
-        set.add('i');
-        set.add('o');
-        set.add('A');
-        set.add('E');
-        set.add('I');
-        set.add('O');
-        set.add('U');
-        set.add('u');
+        HashSet<Character> set1 = new HashSet<>();
 
-        while(start < end){
+        set1.add('a');
+        set1.add('e');
+        set1.add('i');
+        set1.add('o');
+        set1.add('u');
+        set1.add('A');
+        set1.add('E');
+        set1.add('I');
+        set1.add('O');
+        set1.add('U');
 
-            while(!set.contains(str[start]) && start < end){
+        int start = 0;
+        int end = s.length()-1;
+
+        while(start<end){
+
+            while(!set1.contains(str[start]) && start<end){
                 start++;
             }
-            while(!set.contains(str[end]) && start < end){
+            while(!set1.contains(str[end]) && start<end){
                 end--;
             }
 
             char temp = str[start];
-            str[start] = str[end];
+            str[start]= str[end];
             str[end] = temp;
 
             start++;
             end--;
-
         }
-
+        
         return new String(str);
     }
 }
