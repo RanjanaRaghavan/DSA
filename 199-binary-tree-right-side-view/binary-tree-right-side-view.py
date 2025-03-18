@@ -12,26 +12,24 @@ class Solution:
 
         Q = collections.deque([root])
         res = []
-        cur_size = len(Q)
 
         while Q:
 
-            for i in range(cur_size):
+            cursize = len(Q)
+
+            for i in range(cursize):
 
                 node = Q.popleft()
-                if i == cur_size -1:
-                    res.append(node.val)
 
+                if i == cursize -1:
+                    res.append(node.val)
+                
                 if node.left:
                     Q.append(node.left)
 
                 if node.right:
                     Q.append(node.right)
             
-            cur_size = len(Q)
-        
         return res
-                
-
 
         
