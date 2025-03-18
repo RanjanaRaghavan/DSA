@@ -1,8 +1,8 @@
 class Solution {
     public boolean canVisitAllRooms(List<List<Integer>> rooms) {
 
-        Set <Integer> seen = new HashSet<Integer>();
-        Stack <Integer> stack = new Stack<>();
+        Set <Integer> seen = new HashSet<>();
+        Deque<Integer> stack = new ArrayDeque<>();
 
         seen.add(0);
         stack.push(0);
