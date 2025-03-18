@@ -14,15 +14,12 @@ class Solution:
         left = self.lowestCommonAncestor(root.left,p,q)
         right = self.lowestCommonAncestor(root.right,p,q)
 
-        if left is None:
+        if not left:
             return right
         
-        elif right is None:
+        elif not right:
             return left
-        
+
         else:
             return root
-
-
-
         
