@@ -4,60 +4,54 @@ class Solution:
         if not heights or not heights[0]:
             return []
 
-        
-        pacific_Q = collections.deque()
         atlantic_Q = collections.deque()
+        pacific_Q = collections.deque()
 
-        rows , cols = len(heights), len(heights[0])
+        rows,cols = len(heights),len(heights[0])
 
-        #Populate the Queues with all possible points of overflow
+        #Populate Queues
+
         for i in range(rows):
-            pacific_Q.append((i,0))
             atlantic_Q.append((i,cols-1))
-        
-        for i in range(cols):
+            pacific_Q.append((i,0))
+
+
+        for i in range(0,cols):
+            atlantic_Q.append((rows-1,i))
             pacific_Q.append((0,i))
-            atlantic_Q.append((rows -1,i))
+
         
-        #print(pacific_Q , atlantic_Q)
-        
-        #Helper Func BFS
         def bfs(Queue):
+            
             reachable = set()
             while Queue:
+
                 r,c = Queue.popleft()
                 reachable.add((r,c))
-                
-                for x,y in [(0,1),(0,-1),(1,0),(-1,0)]:
 
-                    new_r = r+x
-                    new_c = c+y
+                for x,y in [(1,0),(0,1),(-1,0),(0,-1)]:
 
-                    # is it out of bounds?
-                    if new_r <0 or new_r >= rows or new_c < 0 or new_c >=cols:
+                    nr,nc = r+x , y+c
+
+                    #is the new r,c out of bounds
+                    if nr <0 or nr>=rows or nc<0 or nc>=cols:
                         continue
-
-                    # is it already visited?
-                    if (new_r , new_c) in reachable:
+                    #is it already in reachable
+                    if (nr,nc) in reachable:
                         continue
-
-                    #is it of greater height?
-                    if heights[new_r][new_c] < heights[r][c]:
+                    #is it of greater height
+                    if heights[nr][nc] < heights[r][c]:
                         continue
                     
-                    #Here we can add to Q
-                    Queue.append((new_r,new_c))
-
+                    Queue.append((nr,nc))
+                
             return reachable
         
-        pacific_reachable = bfs(pacific_Q)
-        atlantic_reachable = bfs(atlantic_Q)
+        atlantic_set = bfs(atlantic_Q)
+        pacific_set = bfs(pacific_Q)
 
-        return list(pacific_reachable.intersection(atlantic_reachable))
-
-
+        return list(pacific_set.intersection(atlantic_set))
 
 
         
-
         
