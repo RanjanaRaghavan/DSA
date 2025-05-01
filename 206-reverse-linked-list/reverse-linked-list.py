@@ -9,16 +9,13 @@ class Solution:
         curr = head
         prev = None
 
-        while curr != None:
-
+        while curr :
             temp = curr.next
             curr.next = prev
             prev = curr
             curr = temp
-        
-        return prev
 
-        
+        return prev
 
 
         
