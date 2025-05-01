@@ -1,21 +1,22 @@
 class Solution:
     def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
 
-        min_heap = []
+        minheap = []
 
         for num in arr:
-
             val = abs(num - x)
 
-            #check if val exists in heapq
-            heapq.heappush(min_heap,[-val,-num])
+            heapq.heappush(minheap,[-val,-num])
 
-            if len(min_heap) > k:
-                heapq.heappop(min_heap)
+            if len(minheap) > k:
+                heapq.heappop(minheap)
+        
+        result = []
 
-        result =  [-num for val,num in min_heap ]
+        for val,num in minheap:
+            result.append(-num)
+        
         result.sort()
-        return result
 
-            
+        return result
         
