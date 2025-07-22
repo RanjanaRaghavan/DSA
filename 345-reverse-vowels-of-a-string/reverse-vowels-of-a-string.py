@@ -1,28 +1,57 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
 
-        vowelSet = set("aeiou")
+        '''
+        Approach
+        1. left and right pointers for the word
+        2. loop till we find both left and right vowels and swap 
+        3. Do this until left <= right then return word
+        '''
+        '''
+        Time Complexity : O(s) -> s = len(s)
+        Space Complexity : O(s) -> s = len(s)
+        '''
+        if len(s) <= 1:
+            return s
 
-        s_list = list(s)
+        slist = list(s)
+        vowels = 'aeiouAEIOU'
+        left = 0
+        right = len(s)-1
+
+        while left < right:
+
+            while left < right and slist[left] not in vowels:
+                left +=1
+
+            while left < right and slist[right] not in vowels:
+                right -=1
+
+            slist[left],slist[right] = slist[right],slist[left]
+
+            left += 1
+            right -=1
         
-        start = 0
-        end = len(s)-1
+        return ''.join(slist)
 
-        while start < end:
+# def test_reverseVowels():
 
-            if s_list[start].lower() not in vowelSet:
-                start +=1
-                continue
-            
-            if s_list[end].lower() not in vowelSet:
-                end -=1
-                continue
+#     sol = Solution()
 
-            s_list[start],s_list[end] = s_list[end],s_list[start]
-            
-            start +=1
-            end -=1
+#     #min
+#     assert sol.reverseVowels("b") == "b"
+#     #max
+#     assert sol.reverseVowels("AeIoU") == "UoIeA"
+#     #same
+#     assert sol.reverseVowels("AAAaaa") == "aaaAAA"
+#     #no op
+#     assert sol.reverseVowels("bcvdr") == "bcvdr"
+#     #regular
+#     assert sol.reverseVowels("IceCreAm") == "AceCreIm"
 
-        return ''.join(s_list)
+# test_reverseVowels()
+# print("All Tests passed!")
+
+
 
         
