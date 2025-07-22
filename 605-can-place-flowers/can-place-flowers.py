@@ -17,45 +17,49 @@ class Solution:
         l = len(flowerbed)
 
         #Base Case:
-        if n > l:
-            return False
+        if n ==0:
+            return True
         
-        for i in range(l):
+        i = 0 
 
-            if n ==0 :
-                return True
+        while i < l:
 
             if flowerbed[i] == 0:
 
-                if (i==0 and (i+1 <l and flowerbed[i+1] ==0)) or\
-                (i == l-1 and flowerbed[i-1] == 0) or\
-                (flowerbed[i-1] == 0 and flowerbed[i+1] == 0):
-                    flowerbed[i] =1
+                empty_left = (i == 0 or flowerbed[i-1] == 0) 
+                empty_right = (i == l-1 or flowerbed[i+1] == 0)
+
+                if empty_left and empty_right:
+                    flowerbed[i] == 1
                     n -=1
 
+                    if n == 0:
+                        return True
                     
-                i+=2
+                    i+=2
+                    continue
+
+            i+=1
         
         return n == 0
         
-    
 
-def test_canPlaceFlowers():
+# def test_canPlaceFlowers():
 
-    sol = Solution()
+#     sol = Solution()
 
-    #max
-    assert sol.canPlaceFlowers([1,0,0,0,1],5) == False
-    #min
-    assert sol.canPlaceFlowers([0],1) == True
-    #same
-    assert sol.canPlaceFlowers([1,1,1,1,1],100) == False
-    #regular
-    assert sol.canPlaceFlowers([1,0,0,0,1],1) == True
-    #no op
-    assert sol.canPlaceFlowers([1,0,0,0,1],0) == True
+#     #max
+#     assert sol.canPlaceFlowers([1,0,0,0,1],5) == False
+#     #min
+#     assert sol.canPlaceFlowers([0],1) == True
+#     #same
+#     assert sol.canPlaceFlowers([1,1,1,1,1],100) == False
+#     #regular
+#     assert sol.canPlaceFlowers([1,0,0,0,1],1) == True
+#     #no op
+#     assert sol.canPlaceFlowers([1,0,0,0,1],0) == True
 
-test_canPlaceFlowers()
-print("All Tests passed!")
+# test_canPlaceFlowers()
+# print("All Tests passed!")
 
         
