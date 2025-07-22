@@ -2,35 +2,60 @@ class Solution:
     def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
 
         '''
-            1. check adjacent cells and keep subtracting n till end of loop
-            2. if n ==0 return true else false 
-
-            0,1,0,0. n =1
-            |
-                |
+        Approach
+        Assumption : flowebed[-1] == flowerbed[l+1] == 0
+        1. if i-1 and i+1 ==0 , then i =1 if i =1 then skip next spot and check i+2 and reduce n by 1
+        2. else move on to next spot
+        3. return boolean
+        '''
 
         '''
-        #base Case
+        Time Complexity : O(f) -> f = len(flowerbed)
+        Space Complexity : O(1)
+        '''
+                
+        l = len(flowerbed)
 
-        if n ==0 :
-            return True
-
-        if len(flowerbed) < n:
+        #Base Case:
+        if n > l:
             return False
-            
-        for i in range(0,len(flowerbed)):
+        
+        for i in range(l):
 
-            if flowerbed[i] == 0 and \
-            (i==0 or flowerbed[i-1]==0) and \
-            (i==len(flowerbed)-1 or flowerbed[i+1] == 0):
-                flowerbed[i] = 1
-                n -=1
-            
-            if n == 0:
+            if n ==0 :
                 return True
 
-            i = i+2
+            if flowerbed[i] == 0:
+
+                if (i==0 and (i+1 <l and flowerbed[i+1] ==0)) or\
+                (i == l-1 and flowerbed[i-1] == 0) or\
+                (flowerbed[i-1] == 0 and flowerbed[i+1] == 0):
+                    flowerbed[i] =1
+                    n -=1
+
+                    
+                i+=2
+        
+        return n == 0
+        
     
-        return n==0
 
+def test_canPlaceFlowers():
 
+    sol = Solution()
+
+    #max
+    assert sol.canPlaceFlowers([1,0,0,0,1],5) == False
+    #min
+    assert sol.canPlaceFlowers([0],1) == True
+    #same
+    assert sol.canPlaceFlowers([1,1,1,1,1],100) == False
+    #regular
+    assert sol.canPlaceFlowers([1,0,0,0,1],1) == True
+    #no op
+    assert sol.canPlaceFlowers([1,0,0,0,1],0) == True
+
+test_canPlaceFlowers()
+print("All Tests passed!")
+
+        
