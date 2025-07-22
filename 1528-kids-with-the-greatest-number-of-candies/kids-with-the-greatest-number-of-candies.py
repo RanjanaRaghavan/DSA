@@ -2,23 +2,21 @@ class Solution:
     def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
 
         '''
-            1. Find max candies
-            2. loop thru the arr
-            3. if candy + extracandies > max set to true else false
+            Find out max candy 
+            loop thru every child and check if candy + extra > maxcandy
+            fill result arry with boolean vals
         '''
-
-        output = []
-
-        maxCandies = max(candies)
-        
-        for i in range(0,len(candies)):
-
-            if candies[i] + extraCandies >= maxCandies:
-                output.append(True)
+        maxcandies = max(candies)
+        result = [] 
+        for i in range(len(candies)):
+            if candies[i] + extraCandies >= maxcandies:
+                result.append(True)
             else:
-                output.append(False)
+                result.append(False)
         
-        return output
+        return result
 
 
+
+        
         
