@@ -2,22 +2,19 @@ class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
 
         '''
-        1. loop till min length of both
-        2. check which one reached its end
-        3. append the other one to ans 
+        iterations
+        when l2 or l1 ends then append rest of string
         '''
-
-        output = ''
         l1 = len(word1)
         l2 = len(word2)
-
+        ans = ''
         for i in range(0,min(l1,l2)):
-
-            output += word1[i] + word2[i]
+                ans += word1[i] +word2[i]
         
         if l1 > l2:
-            output = output + word1[l2:]
+            ans += word1[l2:]
         else:
-            output = output + word2[l1:]
+            ans += word2[l1:]
+        return ans
+
         
-        return output
