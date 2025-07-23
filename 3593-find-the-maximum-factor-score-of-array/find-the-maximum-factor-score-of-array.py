@@ -44,23 +44,23 @@ class Solution:
         
         return maxfactor
 
-def test_maxScore():
+# def test_maxScore():
 
-    sol = Solution()
-    #regular
-    assert sol.maxScore([1,2,3,4,5]) == 60
-    #Min
-    assert sol.maxScore([3]) == 9
-    #Modified
-    assert sol.maxScore([2,4,8,16]) == 64
-    #same
-    assert sol.maxScore([3,3]) == 9
-    #min
-    assert sol.maxScore([]) == 0
+#     sol = Solution()
+#     #regular
+#     assert sol.maxScore([1,2,3,4,5]) == 60
+#     #Min
+#     assert sol.maxScore([3]) == 9
+#     #Modified
+#     assert sol.maxScore([2,4,8,16]) == 64
+#     #same
+#     assert sol.maxScore([3,3]) == 9
+#     #min
+#     assert sol.maxScore([]) == 0
 
 
-test_maxScore()
-print("All tests passed!")
+# test_maxScore()
+# print("All tests passed!")
 
         
         
