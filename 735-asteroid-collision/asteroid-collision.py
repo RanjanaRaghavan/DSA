@@ -2,41 +2,55 @@ class Solution:
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
 
         '''
-        1. It only matters if the asteroid is negative that comes from the right
-        2.if its positive directly add to stack
-        3. if negative, then run a while loop till the asteroid becomes smaller than previous
-
+        Approach
+        1. Add first element to the result array
+        2. if pos add to stack , if negative run a while loop till empty or gets destroyed
+            a. -ve <---- , pos ----> so any -ve in front dont matter.
+        3. return res array
         '''
-
-        stack1 = []
-
-        for a in asteroids:
-
-            if a > 0:
-                stack1.append(a)
-
+        '''
+        Time Complexity : O(n) n-> len(asteroids)
+        Space Complexity : O(n) --> worst case no collisions
+        '''
+        res =[]
+        for i in range(0,len(asteroids)):
+            if asteroids[i] >= 0:
+                res.append(asteroids[i])
             else:
-
-                if len(stack1) > 0 and stack1[-1] < 0:
-                    stack1.append(a)
+                if len(res) == 0 or res[-1] < 0:
+                    res.append(asteroids[i])
                 else:
-                    while len(stack1) > 0 and (stack1[-1] >0  and abs(a) > stack1[-1]):
-                        stack1.pop()
-                        #print(a,stack1)
-
-                    if len(stack1) == 0:
-                        stack1.append(a)
-                    elif stack1[-1] >0 and abs(a) == stack1[-1]:
-                        stack1.pop()
-                        continue
-                    elif len(stack1) > 0 and stack1[-1] < 0:
-                        stack1.append(a)
+                    while res and res[-1] >=0:
+                        #equal
+                        if abs(res[-1]) == abs(asteroids[i]):
+                            res.pop()
+                            break
+                        #small
+                        elif abs(res[-1]) < abs(asteroids[i]):
+                            res.pop()
+                        else:
+                            break
                     else:
-                        continue
-            #print(stack1)
+                        res.append(asteroids[i])
+            
+        return res
 
-        return stack1
+# def test_asteroidCollision():
 
+#     sol = Solution()
+#     #reg
+#     assert sol.asteroidCollision([5,10,-5]) == [5,10]
+#     #min
+#     assert sol.asteroidCollision([5,-5]) == []
+#     #max
+#     assert sol.asteroidCollision([300,4,3,4,-5]) == [300]
+#     #no op
+#     assert sol.asteroidCollision([5,10]) == [5,10]
+#     #same
+#     assert sol.asteroidCollision([5,5,5]) == [5,5,5]
+
+# test_asteroidCollision()
+# print("All tests passed!")
 
 
         
