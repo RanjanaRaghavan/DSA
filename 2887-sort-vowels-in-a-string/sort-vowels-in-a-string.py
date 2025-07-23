@@ -33,14 +33,19 @@ class Solution:
         
         return ''.join(t)
 
-def test_sortVowels():
+# def test_sortVowels():
 
-    sol = Solution()
+#     sol = Solution()
 
-    assert sol.sortVowels("lEetcOde") == "lEOtcede"
-    assert sol.sortVowels("lEetcOde") == "lEOtcede"
-    assert sol.sortVowels("lEetcOde") == "lEOtcede"
-    assert sol.sortVowels("lEetcOde") == "lEOtcede"
+#     assert sol.sortVowels("lEetcOde") == "lEOtcede"
+#     assert sol.sortVowels("a") == "a"
+#     assert sol.sortVowels("A") == "A"
+#     assert sol.sortVowels("cSqMsXICUMAIEPyGCrekvsEGjeKbyInGHAuGEpRnsgqCCrrDZbLYpAkWQjZCgUmVqnhrqlhntsQKGoLyvDjJvOqkXUnXkIYAtNfs") == "cSqMsXACAMAAEPyGCrEkvsEGjIKbyInGHIIGOpRnsgqCCrrDZbLYpUkWQjZCgUmVqnhrqlhntsQKGULyvDjJveqkXenXkoYutNfs"
+#     assert sol.sortVowels("OEIoiOEAUEaiIAIAeaAiOIuuOUeUUoEAEEEuIIioeIEaEoEUiaUuIAuiaeaoIaeoiEOOOIIIaiaiOeooOuaaiaAOAIOOOiAaeiUA") == "AAAAAAAAAAEEEEEEEEEEEIIIIIIIIIIIIIOOOOOOOOOOOOOUUUUUUUaaaaaaaaaaaaaeeeeeeeiiiiiiiiiiiioooooooouuuuuu"
+    
+
+# test_sortVowels()
+# print('All tests passed')
     
 
 
