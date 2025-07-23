@@ -48,6 +48,11 @@ class Solution:
 #     assert sol.asteroidCollision([5,10]) == [5,10]
 #     #same
 #     assert sol.asteroidCollision([5,5,5]) == [5,5,5]
+    #   assert sol.asteroidCollision([-1,-2,2,1]) == [-1,-2,2,1]
+    #   assert sol.asteroidCollision([-1,1,-2,2,-3,4]) == [-1,-2,-3,4]
+    #   assert sol.asteroidCollision([-1,-1,1,-1,5]) == [-1,-1,5]
+    #   assert sol.asteroidCollision([1,-2,-2,-2]) == [-2,-2,-2]
+
 
 # test_asteroidCollision()
 # print("All tests passed!")
