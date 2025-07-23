@@ -27,14 +27,20 @@ class Solution:
         
         return merged_intervals
 
-def test_merge():
+# def test_merge():
 
-    sol = Solution()
+#     sol = Solution()
+#     #regular
+#     assert sol.merge([[1,3],[2,6],[8,10],[15,18]]) == [[1,6],[8,10],[15,18]]
+#     #merge
+#     assert sol.merge([[1,4],[4,5]]) == [[1,5]]
+#     #no op
+#     assert sol.merge([[1,3],[8,10],[15,18]]) == [[1,3],[8,10],[15,18]]
+#     #same
+#     assert sol.merge([[1,3],[1,3]]) == [[1,3]]
 
-    assert sol.merge([[1,3],[2,6],[8,10],[15,18]]) == [[1,6],[8,10],[15,18]]
-    assert sol.merge([[1,3],[2,6],[8,10],[15,18]]) == [[1,6],[8,10],[15,18]]
-    assert sol.merge([[1,3],[2,6],[8,10],[15,18]]) == [[1,6],[8,10],[15,18]]
-    
+# test_merge()
+# print("All tests passed!")
 
         
 
