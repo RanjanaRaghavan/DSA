@@ -2,43 +2,39 @@ class Solution:
     def predictPartyVictory(self, senate: str) -> str:
 
         '''
-        1. Lets have rCount and dCount
-        2. Increment opp counter of element added to Queue
-        3. If counter exixts skip adding element to Queue
-        4. Result can be announced if len(Q) =1 or rcount || dcount == len(Q) and the other one is 0
+        1. Lets have two Queues radiant and dire
+        2. Have a i var to determine position
+        3. eliminate the senators by compaing pos and put them back in Q
+        4. Result can be determined when 1 queue goes empty
+        '''
+        '''
+        Time complexity: O(n)
+        Space complexity: O(n) n-> len(senate)
         '''
 
-        rcount = 0
-        dcount = 0
+        n = len(senate)
 
-        Q = collections.deque([])
-        for s in senate:
-            Q.append(s)
+        radiant = collections.deque([])
+        dire = collections.deque([])
 
-        while len(Q) > 1:
-            
-            if rcount == 0 and dcount == len(Q):
-                return 'Radiant'
-            elif dcount == 0 and rcount == len(Q):
-                return 'Dire'
-
-            node = Q.popleft()
-
-            if node == 'R':
-                if rcount == 0:
-                    Q.append('R')
-                    dcount +=1
+        for i,s in enumerate(senate):
+                
+                if s == 'D':
+                    dire.append(i)
                 else:
-                    rcount -=1
+                    radiant.append(i)
+
+        while radiant and dire:
+
+            r = radiant.popleft()
+            d = dire.popleft()
+
+            if r < d:
+                radiant.append(r + n)
             else:
-                if dcount == 0:
-                    Q.append('D')
-                    rcount +=1
-                else:
-                    dcount -=1
+                dire.append(d + n)             
             
-        
-        return 'Dire' if Q.pop() == 'D' else 'Radiant'
+        return 'Dire' if dire  else 'Radiant'
 
 # def test_predictPartyVictory():
 
