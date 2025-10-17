@@ -9,7 +9,6 @@ class Solution:
         cur_row = 0
 
         for c in s:
-            print(c)
             row[cur_row] += c
 
             #if we hit the top or bottom row we toggle the direction
