@@ -1,22 +1,31 @@
 class MyHashMap:
 
-    '''
-    [] ->[1,1] ->[[1,1]]
-    '''
-
     def __init__(self):
-        self.hash_table = [-1] * ((10 ** 6) +1)
+        self.hashmap = []
+        
 
     def put(self, key: int, value: int) -> None:
-        self.hash_table[key] = value
+        for index, (k,v) in enumerate(self.hashmap):
+            if k == key:
+                self.hashmap[index] = (key,value)
+                return
+        
+        self.hashmap.append((key,value))
+        
 
     def get(self, key: int) -> int:
-        return self.hash_table[key]
+        for (k,v) in self.hashmap:
+            if k == key:
+                return v
+        return -1
+
         
 
     def remove(self, key: int) -> None:
-        self.hash_table[key] = -1
-        
+        for index,(k,v) in enumerate(self.hashmap):
+            if k == key:
+                self.hashmap.pop(index)
+
 
 
 # Your MyHashMap object will be instantiated and called as such:
