@@ -6,31 +6,20 @@
 #         self.right = right
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
+        '''
+        The Subtree can give me its depth, so i dont need a helper
+        Every child, children subtree can be bubbled up until we reach parent. So pre order Left -> right-> Node
+        '''
 
-        maxCount = [0]
-        cur_count = 0
-        self.dfs(root,maxCount,cur_count)
-
-        return maxCount[0]
-
-
-    
-    def dfs(self,node,maxCount,cur_Count):
-
-        if node is None:
-            return None
+        if not root:
+            return 0
         
-        cur_Count +=1
+        left_depth = self.maxDepth(root.left)
+        right_depth = self.maxDepth(root.right)
 
-        #Leaf Node
-        if node.right is None and node.left is None:
-            maxCount[0] = max(maxCount[0], cur_Count)
+        return 1 + max(left_depth,right_depth)
         
-        #Non Leaf
-        if node.left:
-            self.dfs(node.left,maxCount,cur_Count)
-        
-        if node.right:
-            self.dfs(node.right,maxCount,cur_Count)
 
+        
+        
         
