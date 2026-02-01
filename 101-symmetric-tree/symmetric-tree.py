@@ -6,8 +6,13 @@
 #         self.right = right
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+
+        '''
+        Again Post Order, children don't matter if parents don't match
+        No helper, as i don't collect any values.
+        '''
         
-        def isMirror(p,q):
+        def dfs(p,q):
 
             if not p and not q:
                 return True
@@ -17,8 +22,7 @@ class Solution:
             
             if p.val != q.val:
                 return False
-            
-            return isMirror(p.left,q.right) and isMirror(p.right, q.left)
+
+            return dfs(p.left,q.right) and dfs(p.right,q.left)
         
-        return isMirror(root.left,root.right)
-        
+        return dfs(root.left, root.right)
