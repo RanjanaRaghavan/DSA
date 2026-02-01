@@ -6,45 +6,16 @@
 #         self.right = right
 class Solution:
     def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        result = []
 
-        '''
-        Process children first and then go come to parent
-        1. 1 list to have the path
-        2. Call helper function 
-        3. Return the list
-        '''
-        path = []
-        self.dfs(root,path)
-        return path
+        def dfs(node):
+            if not root :
+                return 
+            
+            dfs(node.left) if node.left else None
+            dfs(node.right) if node.right else None
 
-
-
-    #Helper Function
-    '''
-    Input 
-    1. root
-    2. list
-    Do : Append to list
-    '''
-    def dfs(self,root,path):
-
-        #None check
-        if root is None:
-            return None
-
-        #leaf node check
-        if root.left is None and root.right is None:
-            path.append(root.val)
-            return
-
-        #none leaf node check
-        if root.left:
-            self.dfs(root.left,path)
+            result.append(node.val)
         
-        if root.right:
-            self.dfs(root.right, path)
-        
-        #Append to path only after 
-        path.append(root.val)
-
-        
+        dfs(root)
+        return result
