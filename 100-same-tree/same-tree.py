@@ -7,6 +7,11 @@
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
 
+        '''
+        Pre order - Node L R . If node doesn't match, already not
+        same Tree. Children don't matter then
+        '''
+
         if not p and not q:
             return True
         
@@ -17,6 +22,7 @@ class Solution:
             return False
         
         return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
-    
         
-        
+
+            
+
