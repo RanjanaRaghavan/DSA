@@ -8,21 +8,19 @@ class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
 
         '''
-        Pre order - Node L R . If node doesn't match, already not
-        same Tree. Children don't matter then
+        Same tree.
+        Post Order -> If parents don't match , We don't need to worry about children
+        Node -> Left -> Right
         '''
 
         if not p and not q:
             return True
         
-        if not p or not q:
+        if not p or not q :
             return False
-        
+
         if p.val != q.val:
             return False
         
         return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
         
-
-            
-
